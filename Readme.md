@@ -1,7 +1,9 @@
+## Web Programming 2023
+http://htmlpreview.github.io/?https://github.com/MHF2145/Web-Progamming-2023/blob/main/Day%202/index.html
 
 Matkul Pemrograman Web
 
-Nama : Mohammad Hanif Furqan Aufa PUtra
+Nama : Mohammad Hanif Furqan Aufa Putra
 
 NRP : 5025221161
 ![Docum Web](image-3.png)
