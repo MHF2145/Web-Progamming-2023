@@ -68,7 +68,7 @@ p {
   .jedagjedug{
     background-color: red;
     animation-name: example;
-    animation-duration: 1s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
 
   }
