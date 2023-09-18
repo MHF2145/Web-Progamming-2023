@@ -1,0 +1,15 @@
+/* styles.css */
+
+/* Styling for the h1 element (title) */
+h1 {
+    text-align: center;
+    font-style: italic; /* Italic text */
+    color: #4d1b6c; /* Darker yellow color */
+    font-family: Futura, sans-serif; /* Use Futura font */
+}
+
+/* Styling for paragraphs */
+p {
+    text-align: center;
+    font-family: Montserrat, thin;
+}

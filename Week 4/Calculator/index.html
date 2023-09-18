@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<style>
+    body {
+  background-image: url('wallpaper.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+</style>
+<body>
+    <h1>Simple Calculator</h1>
+    <form id="calculatorForm">
+        <label for="fnum">Angka Pertama:</label><br>
+        <input type="text" id="fnum" name="fnum"><br>
+        <label for="lnum">Angka Kedua:</label><br>
+        <input type="text" id="lnum" name="lnum"><br>
+        <label for="operator">Operator:</label><br>
+        <select id="operator" name="operator">
+            <option value="+">Tambah(+)</option>
+            <option value="-">Kurang (-)</option>
+            <option value="*">Kali (x)</option>
+            <option value="/">Bagi (:)</option>
+        </select><br><br>
+        <input id="calc" type="button" value="Calculate" onclick="calculateResult()">
+      </form>
+
+      <p id="result"></p>
+
+      <script src="script.js"></script>
+</body>
+</html>
