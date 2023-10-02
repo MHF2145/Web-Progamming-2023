@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surabaya Weather Data</title>
+    <!-- Add Bootstrap CSS link -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      background-image: url("wallpaper.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .woi {
+      height: 120px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>Surabaya Weather Data</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card woi">
+            <div class="card-body">
+              <h5 class="card-title">Temperature (2m)</h5>
+              <p class="card-text" id="temperature2m">Loading...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card woi">
+            <div class="card-body">
+              <h5 class="card-title">Relative Humidity (2m)</h5>
+              <p class="card-text" id="relativehumidity2m">Loading...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card woi">
+            <div class="card-body">
+              <h5 class="card-title">Rain</h5>
+              <p class="card-text" id="rain">Loading...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="card woi">
+            <div class="card-body">
+              <h5 class="card-title">Wind Speed (10m)</h5>
+              <p class="card-text" id="windspeed10m">Loading...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card woi">
+            <div class="card-body">
+              <h5 class="card-title">Temperature (80m)</h5>
+              <p class="card-text" id="temperature80m">Loading...</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card woi">
+            <div class="card-body">
+              <h5 class="card-title">Soil Temperature (0cm)</h5>
+              <p class="card-text" id="soiltemperature0cm">Loading...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Bootstrap and jQuery JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      // Function to fetch weather data from the API using Ajax
+      function fetchWeatherData() {
+        $.ajax({
+          url: "https://api.open-meteo.com/v1/forecast?latitude=-7.2492&longitude=112.7508&hourly=temperature_2m,relativehumidity_2m,rain,windspeed_10m,temperature_80m,soil_temperature_0cm",
+          method: "GET",
+          dataType: "json",
+          success: function (data) {
+            // Update the card texts with the fetched data
+            $("#temperature2m").text(
+              data.hourly.temperature_2m[
+                data.hourly.temperature_2m.length - 1
+              ] + " °C"
+            );
+            $("#relativehumidity2m").text(
+              data.hourly.relativehumidity_2m[
+                data.hourly.relativehumidity_2m.length - 1
+              ] + " %"
+            );
+            $("#rain").text(
+              data.hourly.rain[data.hourly.rain.length - 1] + " mm"
+            );
+            $("#windspeed10m").text(
+              data.hourly.windspeed_10m[data.hourly.windspeed_10m.length - 1] +
+                " m/s"
+            );
+            $("#temperature80m").text(
+              data.hourly.temperature_80m[
+                data.hourly.temperature_80m.length - 1
+              ] + " °C"
+            );
+            $("#soiltemperature0cm").text(
+              data.hourly.soil_temperature_0cm[
+                data.hourly.soil_temperature_0cm.length - 1
+              ] + " °C"
+            );
+          },
+          error: function () {
+            // Handle errors here
+            console.log("Error fetching weather data.");
+          },
+        });
+      }
+
+      // Fetch weather data when the page loads
+      fetchWeatherData();
+    </script>
+  </body>
+</html>
