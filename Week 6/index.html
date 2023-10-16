@@ -23,12 +23,18 @@
   </style>
   <body>
     <div class="container">
-      <h1>Surabaya Weather Data</h1>
+      <h1>
+        Surabaya Weather Data
+        <img src="icons/Sun.png" width="50" height="50" />
+      </h1>
       <div class="row">
         <div class="col-md-4">
           <div class="card woi">
             <div class="card-body">
-              <h5 class="card-title">Temperature (2m)</h5>
+              <h5 class="card-title">
+                Temperature (2m)
+                <img src="icons/Temp.png" width="30" height="30" />
+              </h5>
               <p class="card-text" id="temperature2m">Loading...</p>
             </div>
           </div>
@@ -36,7 +42,10 @@
         <div class="col-md-4">
           <div class="card woi">
             <div class="card-body">
-              <h5 class="card-title">Relative Humidity (2m)</h5>
+              <h5 class="card-title">
+                Relative Humidity (2m)
+                <img src="icons/Humidity.png" width="30" height="30" />
+              </h5>
               <p class="card-text" id="relativehumidity2m">Loading...</p>
             </div>
           </div>
@@ -44,7 +53,10 @@
         <div class="col-md-4">
           <div class="card woi">
             <div class="card-body">
-              <h5 class="card-title">Rain</h5>
+              <h5 class="card-title">
+                Rain
+                <img src="icons/Rain.png" width="30" height="30" />
+              </h5>
               <p class="card-text" id="rain">Loading...</p>
             </div>
           </div>
@@ -54,7 +66,10 @@
         <div class="col-md-4">
           <div class="card woi">
             <div class="card-body">
-              <h5 class="card-title">Wind Speed (10m)</h5>
+              <h5 class="card-title">
+                Wind Speed (10m)
+                <img src="icons/Wind.png" width="30" height="30" />
+              </h5>
               <p class="card-text" id="windspeed10m">Loading...</p>
             </div>
           </div>
@@ -62,7 +77,10 @@
         <div class="col-md-4">
           <div class="card woi">
             <div class="card-body">
-              <h5 class="card-title">Temperature (80m)</h5>
+              <h5 class="card-title">
+                Temperature (80m)
+                <img src="icons/Temp(80m).png" width="30" height="30" />
+              </h5>
               <p class="card-text" id="temperature80m">Loading...</p>
             </div>
           </div>
@@ -70,7 +88,10 @@
         <div class="col-md-4">
           <div class="card woi">
             <div class="card-body">
-              <h5 class="card-title">Soil Temperature (0cm)</h5>
+              <h5 class="card-title">
+                Soil Temperature (0cm)
+                <img src="icons/Soil Temp.png" width="30" height="30" />
+              </h5>
               <p class="card-text" id="soiltemperature0cm">Loading...</p>
             </div>
           </div>
@@ -86,7 +107,7 @@
       // Function to fetch weather data from the API using Ajax
       function fetchWeatherData() {
         $.ajax({
-          url: "https://api.open-meteo.com/v1/forecast?latitude=-7.2492&longitude=112.7508&hourly=temperature_2m,relativehumidity_2m,rain,windspeed_10m,temperature_80m,soil_temperature_0cm",
+          url: "https://api.open-meteo.com/v1/forecast?latitude=-7.9797&longitude=112.7508&hourly=temperature_2m,relativehumidity_2m,rain,windspeed_10m,temperature_80m,soil_temperature_0cm",
           method: "GET",
           dataType: "json",
           success: function (data) {

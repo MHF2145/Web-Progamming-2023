@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><!-- Change: Your Page Title --></title> <!-- Customize the page title here -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    >
+</head>
+<body class="bg-dark text-light">
+    <h1 class="text-center mt-5 font-italic">
+        Calculator
+        <!-- Change: Your Page Heading -->
+    </h1> 
+    <!-- Customize the page heading here -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <input type="text" class="form-control mb-3" name="input_one" id="input_one">
+                <input type="text" class="form-control mb-3" name="input_two" id="input_two">
+                <div class="d-flex justify-content-center">
+                    <!-- Change: You can update the text and behavior of these buttons -->
+                    <button onclick="sum()" class="btn btn-light mx-2" id="sum">+</button>
+                    <button onclick="sub()" class="btn btn-light mx-2" id="subtract">-</button>
+                    <button onclick="mul()" class="btn btn-light mx-2" id="multiply">*</button>
+                    <button onclick="div()" class="btn btn-light mx-2" id="div">/</button>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <span>Result = </span>
+                    <span id="result"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Change: Include your custom JavaScript file here -->
+    <script src="script.js"></script>
+</body>
+</html>
