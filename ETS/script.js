@@ -1,4 +1,3 @@
-console.log("hello");
 const apikey = "e5c08dd6338660ce87600ab9bfe6cdca"
 const endpoint = `http://apilayer.net/api/live?access_key=${apikey}&pairs=EURUSD,EURGBP,GBPUSD,USDJPY,AUDUSD,USDCHF,NZDUSD,USDCAD,USDZAR`;
 
@@ -40,5 +39,7 @@ const getData = async () => {
     input.map((curr) => {
         document.getElementById(curr).innerText = (rate[curr] ? rate[curr] : ifUndefined[curr].rate);
     })
+    console.log(rate);
 }
 getData();
+

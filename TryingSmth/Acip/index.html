@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Translator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Text Translator</h1>
+    <div class="form-group">
+      <label for="inputText">Enter text to translate:</label>
+      <textarea class="form-control" id="inputText" rows="4"></textarea>
+    </div>
+    <button class="btn btn-primary" onclick="translateText()">Translate</button>
+    <div class="form-group mt-4">
+      <label for="outputText">Translated text:</label>
+      <textarea class="form-control" id="outputText" rows="4" readonly></textarea>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
