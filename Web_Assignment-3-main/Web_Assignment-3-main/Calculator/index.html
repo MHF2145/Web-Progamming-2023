@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+    <style>
+      h1{
+        color: #41B883;
+        text-align: center; /* Center the heading text */
+      }
+      body {
+            background-color: black;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        #result{
+          color: #41B883;
+          text-align: center; /* Center the result text */
+        }
+    </style>
+</head>
+<body>
+  <h1>Simple Calculator</h1> <!-- Removed unnecessary class -->
+    <div id="app" class="d-flex justify-content-center">
+        <form id="calculatorForm">
+            <label for="angka1">Angka Pertama:</label><br>
+            <input type="text" v-model="angka1" /><br>
+            <label for="angka2">Angka Kedua:</label><br>
+            <input type="text" v-model="angka2" /><br>
+            <label for="operator">Operator:</label><br>
+            <select v-model="operator">
+                <option value="+">tambah (+)</option>
+                <option value="-">kurang (-)</option>
+                <option value="*">kali (x)</option>
+                <option value="/">bagi (/)</option>
+            </select><br><br>
+            <input type="button" value="Calculate" @click="calculate" />
+        </form>
+
+        <p id="result">{{ hasil }}</p>
+    </div>
+    
+    <script type="module">
+        import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+        createApp({
+            data() {
+                return {
+                    angka1: "",
+                    angka2: "",
+                    operator: "+",
+                    hasil: "",
+                };
+            },
+            methods: {
+                calculate() {
+                    if (this.operator === "+") {
+                        this.hasil = parseFloat(this.angka1) + parseFloat(this.angka2);
+                    } else if (this.operator === "-") {
+                        this.hasil = parseFloat(this.angka1) - parseFloat(this.angka2);
+                    } else if (this.operator === "*") {
+                        this.hasil = parseFloat(this.angka1) * parseFloat(this.angka2);
+                    } else if (this.operator === "/") {
+                        if (parseFloat(this.angka2) === 0) {
+                            this.hasil = "UNDEFINED";
+                        } else {
+                            this.hasil = parseFloat(this.angka1) / parseFloat(this.angka2);
+                        }
+                    }
+                },
+            },
+        }).mount("#app");
+    </script>
+</body>
+</html>

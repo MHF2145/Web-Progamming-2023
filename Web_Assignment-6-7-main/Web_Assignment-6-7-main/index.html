@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      h1 {
+        color: #41b883;
+        text-align: center;
+      }
+
+      body {
+        background-color: black;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      #result {
+        color: #41b883;
+        text-align: center;
+      }
+
+      /* Common styling for input and output card body */
+      .calculator-card {
+        background-color: #204;
+        color: #41b883;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      /* Style input and select elements */
+      .input-field {
+        margin-top: 10px;
+      }
+      div{
+        background-color: #204;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Simple Calculator</h1>
+    <div class="container mt-4" id="calculatorApp">
+      <div class="col-sm-5">
+        <div class="form-group input-field">
+          <label for="angka1">Angka Pertama:</label>
+          <input type="text" class="form-control" v-model="angka1" />
+        </div>
+        <div class="form-group input-field">
+          <label for="angka2">Angka Kedua:</label>
+          <input type="text" class="form-control" v-model="angka2" />
+        </div>
+        <div class="form-group input-field">
+          <label for="operator">Operator:</label>
+          <select class="form-control" v-model="operator">
+            <option value="+">tambah (+)</option>
+            <option value="-">kurang (-)</option>
+            <option value="*">kali (x)</option>
+            <option value="/">bagi (/)</option>
+          </select>
+        </div>
+        <div class="form-group input-field">
+          <input
+            type="button"
+            class="btn btn-primary"
+            value="Calculate"
+            @click="calculate"
+          />
+        </div>
+      </div>
+
+      <div class="card col-sm-5 calculator-card">
+        <div class="card-body">
+          <p class="card-text" id="calculate">{{ hasil }}</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script>
+      new Vue({
+        el: "#calculatorApp",
+        data: {
+          angka1: "",
+          angka2: "",
+          operator: "+",
+          hasil: "",
+        },
+        methods: {
+          calculate: function() {
+            const num1 = parseFloat(this.angka1);
+            const num2 = parseFloat(this.angka2);
+
+            switch (this.operator) {
+              case "+":
+                this.hasil = num1 + num2;
+                break;
+              case "-":
+                this.hasil = num1 - num2;
+                break;
+              case "*":
+                this.hasil = num1 * num2;
+                break;
+              case "/":
+                this.hasil = num1 / num2;
+                break;
+              default:
+                this.hasil = "Invalid operator";
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
